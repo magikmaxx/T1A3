@@ -1,6 +1,3 @@
-require "tty-prompt"
-$prompt = TTY::Prompt.new
-
 $category = ["Bills", "Utilities", "Groceries"]
 
 def current_categories (category)

@@ -27,4 +27,4 @@
 # puts "You have added #{new_category} into categories"
 
 # puts "Your expenses for #{bills.category} is #{bills.expenses}"
-category = ["Bills", "Utilities", "Groceries"]
+# category = ["Bills", "Utilities", "Groceries"]

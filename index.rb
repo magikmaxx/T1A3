@@ -52,7 +52,7 @@ def income_and_expenses_state
     end
 end
 
-#While loop menu for editing category
+#While loop menu for adding or removing category
 def add_remove_selection_state
     while @add_remove_selection != "Return to Main Menu"
         @add_remove_selection = add_or_remove_menu
