@@ -6,11 +6,10 @@ require_relative ("./view_balance.rb")
 
 $prompt = TTY::Prompt.new
 
-selection = ""
-
 puts "Welcome to FinView, a terminal application that helps you track your finances.
 With the help of FinView you are able to document your income and expenses."
-
+#Selection options for main menu
+selection = ""
 def main_menu
     return $prompt.select("What would you like to do?",
     ["Make changes to your balance",
@@ -19,7 +18,7 @@ def main_menu
     "Create or delete a category",
     "Exit"])
 end
-
+# selection options for income and expenses menu
 @income_expense_selection = ""
 def income_and_expenses_menu
     return $prompt.select("What would you like to do?",
@@ -27,7 +26,7 @@ def income_and_expenses_menu
     "Deduct Expenses",
     "Return to Main Menu"])
 end
-
+#Selection options for category menu
 @add_remove_selection = ""
 def add_or_remove_menu
     return $prompt.select("What would you like to do?",
