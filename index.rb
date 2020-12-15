@@ -1,4 +1,9 @@
 require "tty-prompt"
+require_relative ("./income_and_expenses.rb")
+require_relative ("./edit_category.rb")
+require_relative ("./breakdown_of_income_expenses.rb")
+require_relative ("./view_balance.rb")
+
 $prompt = TTY::Prompt.new
 
 selection = ""
@@ -6,73 +11,77 @@ selection = ""
 puts "Welcome to FinView, a terminal application that helps you track your finances.
 With the help of FinView you are able to document your income and expenses."
 
-def select_option
+def main_menu
     return $prompt.select("What would you like to do?",
-    ["Make changes to your balance", 
-    "View current balance", 
-    "View breakdown of income and expenses", 
-    "Create or delete a category", 
+    ["Make changes to your balance",
+    "View current balance",
+    "View breakdown of income and expenses",
+    "Create or delete a category",
     "Exit"])
 end
 
-while selection != "Exit"
-    selection = select_option
-    system "clear"
-    case selection
-    when "Make changes to your balance"
-        require_relative ("./income_and_expenses.rb")
-    when "View current balance"
-        require_relative ("./view_balance.rb")
-    when "View breakdown of income and expenses"
-        require_relative ("./breakdown_of_income_expenses.rb")
-    when "Create or delete a category"
-        require_relative ("./edit_category.rb")
+@income_expense_selection = ""
+def income_and_expenses_menu
+    return $prompt.select("What would you like to do?",
+    ["Add Income",
+    "Deduct Expenses",
+    "Return to Main Menu"])
+end
+
+@add_remove_selection = ""
+def add_or_remove_menu
+    return $prompt.select("What would you like to do?",
+        ["Add category",
+        "Remove category",
+        "Return to Main Menu"])
+end
+
+#Menu options for adding income and deducting expenses
+def income_and_expenses_state
+    while @income_expense_selection != "Return to Main Menu"
+        @income_expense_selection = income_and_expenses_menu
+        system "clear"
+        case @income_expense_selection
+        when "Add Income"
+            income
+        when "Deduct Expenses"
+            expenses
+        when "Return to Main Menu"
+            main_menu
+        end
     end
 end
 
-# def display_menu
-#     puts "1. Make changes to current balance"
-#     puts "2. View current balance"
-#     puts "3. View breakdown of income and expenses"
-#     puts "4. Create a new category"
-#     puts "5. Exit"
-#     puts "Select 1-4"
-#     selection = gets.chomp
-#     return selection
-# end
+#While loop menu for editing category
+def add_remove_selection_state
+    while @add_remove_selection != "Return to Main Menu"
+        @add_remove_selection = add_or_remove_menu
+        system "clear"
+        case @add_remove_selection
+        when "Add category"
+            add_category ($category)
+        when "Remove category"
+            remove_category ($category)
+        when "Return to Main Menu"
+            main_menu
+        end
+    end
+end
 
-#Welcome Text
-
-
-#Menu
-# menu_select = ""
-# while menu_select !="5"
-#     menu_select = display_menu
-#     system "clear"
-    
-#     case menu_select
-#     when "1"
-#         puts "1 selected"
-#         system "clear"
-#         #Creates 2 new options
-#         #Income 
-#         #Expenses
-#     when "2"
-#         puts "2 selected"
-#         #Shows current balance
-#     when "3"
-#         puts "3 selected"
-#         #Shows breakdown of spending
-#         #Puts Total income - expense per category
-#     when "4" 
-#         puts "4 selected"
-#         #Creates new category for user
-#     when "5"
-#         system "clear"
-#     else
-#         puts "Invalid option"
-#     end 
-#     puts "press Enter key to continue"
-#     gets 
-#     system "clear"
-# end 
+#Main Menu selection
+while selection != "Exit"
+    selection = main_menu
+    system "clear"
+    case selection
+    when "Make changes to your balance"
+        income_and_expenses_state
+    when "View current balance"
+        view_balance_state
+    when "View breakdown of income and expenses"
+        breakdown_of_income_expenses_state
+    when "Create or delete a category"
+       add_remove_selection_state
+    when "Exit"
+        exit
+    end
+end

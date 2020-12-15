@@ -1,6 +1,7 @@
 require "tty-prompt"
-require_relative "./finance_classes.rb"
 $prompt = TTY::Prompt.new
+
+$category = ["Bills", "Utilities", "Groceries"]
 
 def current_categories (category)
     puts "Your current categories are:"
@@ -48,26 +49,4 @@ def remove_category (category)
         puts "invalid option"
     end
     puts category
-end
-# #Array of optional categories
-category = ["Bills", "Utilities", "Groceries"]
-
-#Menu Options
-add_remove_selection = ""
-def add_or_remove_menu
-    return $prompt.select("What would you like to do?",
-        ["Add category",
-        "Remove category",
-        "Return to Main Menu"])
-end
-
-while add_remove_selection != "Return to Main Menu"
-    add_remove_selection = add_or_remove_menu
-    system "clear"
-    case add_remove_selection
-    when "Add category"
-        add_category (category)
-    when "Remove category"
-        remove_category (category)
-    end
 end
