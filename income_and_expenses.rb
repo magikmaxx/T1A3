@@ -14,7 +14,7 @@ def expenses
         expense_amount = gets.chomp.to_i
         categories_hash = expense_amount
     end
-    puts "#{expense_amount} has been added to #{:Bills}"
+    puts "#{expense_amount} has been added to #{chosen_category}"
 end
 
 $balance = 0
