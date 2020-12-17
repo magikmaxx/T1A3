@@ -9,7 +9,7 @@ $prompt = TTY::Prompt.new
 puts "Welcome to FinView, a terminal application that helps you track your finances.
 With the help of FinView you are able to document your income and expenses."
 #Selection options for main menu
-selection = ""
+# selection = ""
 def main_menu
     return $prompt.select("What would you like to do?",
     ["Make changes to your balance",
@@ -19,7 +19,7 @@ def main_menu
     "Exit"])
 end
 # selection options for income and expenses menu
-@income_expense_selection = ""
+income_expense_selection = ""
 def income_and_expenses_menu
     return $prompt.select("What would you like to do?",
     ["Add Income",
@@ -27,7 +27,7 @@ def income_and_expenses_menu
     "Return to Main Menu"])
 end
 #Selection options for category menu
-@add_remove_selection = ""
+add_remove_selection = ""
 def add_or_remove_menu
     return $prompt.select("What would you like to do?",
         ["Add category",
@@ -37,37 +37,36 @@ end
 
 #Menu options for adding income and deducting expenses
 def income_and_expenses_state
-    while @income_expense_selection != "Return to Main Menu"
-        @income_expense_selection = income_and_expenses_menu
+    income_expense_selection= ""
+    while income_expense_selection != "Return to Main Menu"
+        income_expense_selection = income_and_expenses_menu
         system "clear"
-        case @income_expense_selection
+        case income_expense_selection
         when "Add Income"
             income
         when "Deduct Expenses"
             expenses
-        when "Return to Main Menu"
-            main_menu
         end
     end
 end
 
 #While loop menu for adding or removing category
 def add_remove_selection_state
-    while @add_remove_selection != "Return to Main Menu"
-        @add_remove_selection = add_or_remove_menu
+    add_remove_selection=""
+    while add_remove_selection != "Return to Main Menu"
+        add_remove_selection = add_or_remove_menu
         system "clear"
-        case @add_remove_selection
+        case add_remove_selection
         when "Add category"
             add_category ($category)
         when "Remove category"
             remove_category ($category)
-        when "Return to Main Menu"
-            main_menu
         end
     end
 end
 
 #Main Menu selection
+selection = ""
 while selection != "Exit"
     selection = main_menu
     system "clear"
@@ -80,7 +79,5 @@ while selection != "Exit"
         breakdown_of_income_expenses_state
     when "Create or delete a category"
        add_remove_selection_state
-    when "Exit"
-        exit
     end
 end

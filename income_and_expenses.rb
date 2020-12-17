@@ -17,10 +17,11 @@ def expenses
     puts "Your expenses for #{:Bills} has included the amount of #{expense_amount}"
 end
 
+$balance = 0
 def income
     puts "Please enter your income"
-    balance = gets.chomp.to_i
-    puts "Your added income is #{balance}"
+    $balance += gets.chomp.to_i
+    puts "Your added income is #{$balance}"
 end
 
 
