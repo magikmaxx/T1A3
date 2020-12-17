@@ -1,4 +1,8 @@
-$category = ["Bills", "Utilities", "Groceries"]
+$category = {
+    "Bills" => 0,
+    "Groceries" => 0,
+    "Utilities" => 0
+}
 
 def current_categories (category)
     puts "Your current categories are:"
@@ -8,19 +12,20 @@ end
 # Allows the user to add category
 def add_category (category)
     puts "Your current categories are:"
-    puts category
+    puts category.keys
 
     puts "Enter the name of new category"
-    new_category = gets.chomp
+    new_category = gets.chomp.capitalize
     #pushes a new category into the last slot of an array.
-    category << new_category.capitalize
+    category["#{new_category}"] = 0
+    # category << new_category.capitalize
     puts "Adding new category"
     sleep (2)
     system "clear"
     puts "Your new entry is:"
-    puts new_category.capitalize
+    puts new_category
     puts "Your new categories are:"
-    puts category
+    puts category.keys
 end
 
 #Allows the user to remove category

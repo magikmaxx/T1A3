@@ -1,8 +1,8 @@
 def expenses
     categories_hash = {
-        :Bills => 0,
-        :Utilities => 0,
-        :Groceries => 0
+        "Bills" => 0,
+        "Utilities" => 0,
+        "Groceries" => 0
     }
 
     puts "Type in the category you would like add expenses to"
