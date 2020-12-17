@@ -2,7 +2,7 @@ require 'colorize'
 
 def breakdown_of_income_expenses_state
     categories_hash = {
-        "Bills" => 100,
+        "Bills    " => 100,
         "Utilities" => 150,
         "Groceries" => 200
     }
