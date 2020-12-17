@@ -16,7 +16,7 @@ def add_category (category)
 
     puts "Enter the name of new category"
     new_category = gets.chomp.capitalize
-    #pushes a new category into the last slot of an array.
+    #pushes a new category into the hash
     category["#{new_category}"] = 0
     # category << new_category.capitalize
     puts "Adding new category"
@@ -31,7 +31,7 @@ end
 #Allows the user to remove category
 def remove_category (category)
     puts "Your current categories are:"
-    puts category
+    puts category.keys
 
     puts "Please enter the category you would like to remove"
     category_remove = gets.chomp.capitalize
@@ -45,10 +45,10 @@ def remove_category (category)
         system "clear"
     elsif answer == "n"
         puts "Category not deleted"
-        puts "Your new categories are:"
-        puts category
+        puts "Your categories are:"
+        puts category.keys
     else 
         puts "invalid option"
     end
-    puts category
+    puts category.keys
 end

@@ -8,11 +8,10 @@ require_relative ("./view_balance.rb")
 $prompt = TTY::Prompt.new
 font = TTY::Font.new(:starwars)
 
-puts font.write("FinView")
-puts "Welcome to FinView, a terminal application that helps you track your finances.
-With the help of FinView you are able to document your income and expenses."
+puts font.write("Fin.View")
+puts "Welcome to Fin.View, a terminal application that helps you track your finances.
+With the help of Fin.View you are able to document and track your income and expenses."
 #Selection options for main menu
-# selection = ""
 def main_menu
     return $prompt.select("What would you like to do?",
     ["Make changes to your balance",

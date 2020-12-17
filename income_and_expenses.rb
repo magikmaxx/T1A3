@@ -14,7 +14,7 @@ def expenses
         expense_amount = gets.chomp.to_i
         categories_hash = expense_amount
     end
-    puts "Your expenses for #{:Bills} has included the amount of #{expense_amount}"
+    puts "#{expense_amount} has been added to #{:Bills}"
 end
 
 $balance = 0
@@ -23,7 +23,3 @@ def income
     $balance += gets.chomp.to_i
     puts "Your added income is #{$balance}"
 end
-
-
-
-
