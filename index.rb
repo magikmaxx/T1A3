@@ -1,11 +1,14 @@
 require "tty-prompt"
+require "tty-font"
 require_relative ("./income_and_expenses.rb")
 require_relative ("./edit_category.rb")
 require_relative ("./breakdown_of_income_expenses.rb")
 require_relative ("./view_balance.rb")
 
 $prompt = TTY::Prompt.new
+font = TTY::Font.new(:starwars)
 
+puts font.write("FinView")
 puts "Welcome to FinView, a terminal application that helps you track your finances.
 With the help of FinView you are able to document your income and expenses."
 #Selection options for main menu
