@@ -10,7 +10,12 @@ def breakdown_of_income_expenses_state
     end
 
     @category_hash.each do |category_key, category_value|
+      if category_key.length <= 9
+        remainder = 9 - category_key.length
+        remainder.times {|n| category_key += " "}
+      end
       puts "#{category_key}              #{category_value}".colorize(:red)
+      
     end
 
     if current_balance >= 0

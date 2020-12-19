@@ -11,7 +11,9 @@ def expenses
       expense_amount = gets.chomp.to_i
       @category_hash[category] += expense_amount
     else
-      # category does not exist
+      system "clear"
+      puts "Category does not exist".colorize(:cyan)
+      return expenses
     end
     puts "#{expense_amount} has been added to #{chosen_category}"
   end
@@ -19,5 +21,5 @@ def expenses
 def income
     puts "Please enter your income"
     @balance += gets.chomp.to_i
-    # puts "Your added income is #{balance}"
+    puts "Your added income is #{@balance}"
 end

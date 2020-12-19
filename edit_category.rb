@@ -1,3 +1,5 @@
+require "colorize"
+
 def current_categories (category)
     puts "Your current categories are:"
     puts category
@@ -10,6 +12,10 @@ def add_category
 
     puts "Enter the name of new category"
     new_category = gets.chomp.capitalize
+    if new_category.length > 9
+      puts "Limit of 9 characters please".colorize(:blue)
+      return add_category
+    end
     # pushes a new category into the hash
     @category_hash[new_category] = 0
     # category << new_category.capitalize
@@ -45,5 +51,4 @@ def remove_category
       puts "invalid option"
     end
     puts @category_hash.keys
-
 end

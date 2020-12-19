@@ -1,10 +1,15 @@
 require "tty-prompt"
 require "tty-font"
+require "yaml"
 require_relative ("./income_and_expenses.rb")
 require_relative ("./edit_category.rb")
 require_relative ("./breakdown_of_income_expenses.rb")
 require_relative ("./view_balance.rb")
 
+# Get data on load
+data = YAML.load(File.read("finview.yml"))
+@balance = data["finview"]["balance"]
+@category_hash = data["finview"]["categories_hash"]
 
 $prompt = TTY::Prompt.new
 font = TTY::Font.new(:starwars)
@@ -69,12 +74,6 @@ def add_remove_selection_state
 end
 
 #Main Menu selection
-@balance = 0
-@category_hash = {
-    "Bills" => 0,
-    "Utilities" => 0,
-    "Groceries" => 0
-  }
 selection = ""
 while selection != "Exit"
     selection = main_menu
@@ -88,5 +87,12 @@ while selection != "Exit"
         breakdown_of_income_expenses_state
     when "Create or delete a category"
        add_remove_selection_state
+    when "Exit"
+        data["finview"]["balance"] = @balance
+        File.open("finview.yml", "w") { |file| file.write(data.to_yaml) }
+        puts "Your data has been successfully saved."
     end
 end
+
+
+# Save data on exit
