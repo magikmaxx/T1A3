@@ -1,25 +1,23 @@
 def expenses
-    categories_hash = {
-        "Bills" => 0,
-        "Utilities" => 0,
-        "Groceries" => 0
-    }
+    categories = @category_hash.keys
 
     puts "Type in the category you would like add expenses to"
-    puts categories_hash.keys
+    puts categories
     chosen_category = gets.chomp.capitalize
 
-    if chosen_category == "Bills"
-        puts "What amount?"
-        expense_amount = gets.chomp.to_i
-        categories_hash = expense_amount
+    category = categories.find { |category| category == chosen_category }
+    if category
+      puts "What amount?"
+      expense_amount = gets.chomp.to_i
+      @category_hash[category] += expense_amount
+    else
+      # category does not exist
     end
     puts "#{expense_amount} has been added to #{chosen_category}"
-end
+  end
 
-$balance = 0
 def income
     puts "Please enter your income"
-    $balance += gets.chomp.to_i
-    puts "Your added income is #{$balance}"
+    @balance += gets.chomp.to_i
+    # puts "Your added income is #{balance}"
 end

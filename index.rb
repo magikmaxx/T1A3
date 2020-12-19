@@ -5,6 +5,7 @@ require_relative ("./edit_category.rb")
 require_relative ("./breakdown_of_income_expenses.rb")
 require_relative ("./view_balance.rb")
 
+
 $prompt = TTY::Prompt.new
 font = TTY::Font.new(:starwars)
 
@@ -60,14 +61,20 @@ def add_remove_selection_state
         system "clear"
         case add_remove_selection
         when "Add category"
-            add_category ($category)
+            add_category
         when "Remove category"
-            remove_category ($category)
+            remove_category
         end
     end
 end
 
 #Main Menu selection
+@balance = 0
+@category_hash = {
+    "Bills" => 0,
+    "Utilities" => 0,
+    "Groceries" => 0
+  }
 selection = ""
 while selection != "Exit"
     selection = main_menu

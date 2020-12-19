@@ -1,24 +1,14 @@
 require 'colorize'
 
 def view_balance_state
-    categories_hash = {
-        "Bills" => 100,
-        "Utilities" => 150,
-        "Groceries" => 200
-    }
-
-    balance = 300
-
-    categories_hash.each do |k, v|
-        $new_balance = balance - (categories_hash.values.sum)
-    end
-
-    if $new_balance > 0
+    current_balance = @balance - @category_hash.values.sum
+    
+    if current_balance >= 0
         puts "Your current balance is:"
-        puts "      #{$new_balance}".colorize(:green)
+        puts "#{current_balance}".colorize(:green)
     else
         puts "Your current balance is:"
-        puts "      #{$new_balance}".colorize(:red)
+        puts "#{current_balance}".colorize(:red)
     end
 end
 
