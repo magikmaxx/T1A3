@@ -7,11 +7,11 @@ def breakdown_of_income_expenses_state
         "Groceries" => 200
     }
 
-    balance = 1000
+    balance = 0
 
     categories_hash.each do |k, v|
         $new_balance = balance - (categories_hash.values.sum)
-    end
+        end
 
     if balance > 0 
         puts "Your balance:          #{balance}".colorize(:green)
@@ -26,7 +26,4 @@ def breakdown_of_income_expenses_state
     else 
         puts "Your balance:          #{$new_balance}".colorize(:red)
     end
-
-    
 end
-

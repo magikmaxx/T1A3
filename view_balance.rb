@@ -13,12 +13,12 @@ def view_balance_state
         $new_balance = balance - (categories_hash.values.sum)
     end
 
-    if $new_balance >= 1
+    if $new_balance > 0
         puts "Your current balance is:"
-        puts "#{$new_balance}".colorize(:green)
+        puts "      #{$new_balance}".colorize(:green)
     else
         puts "Your current balance is:"
-        puts "#{$new_balance}".colorize(:red)
+        puts "      #{$new_balance}".colorize(:red)
     end
 end
 
