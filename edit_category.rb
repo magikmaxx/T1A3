@@ -18,7 +18,7 @@ def add_category (category)
     new_category = gets.chomp.capitalize
     #pushes a new category into the hash
     category["#{new_category}"] = 0
-    puts "Adding new category"
+    puts "Adding #{new_category} to categories"
     sleep (2)
     system "clear"
     puts "Your new entry is:"
