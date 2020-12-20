@@ -40,12 +40,15 @@ def remove_category
     category = categories.find { |category| category == category_remove }
     if category
       puts "Your selected category is #{category_remove}"
+      confirm_deletion
     else
       system "clear"
       puts "Category does not exist".colorize(:cyan)
       return remove_category
     end
-   
+end
+
+def confirm_deletion   
     puts "Would you like to delete this category? (y/n)"
     answer = gets.chomp
     if answer == "y"
@@ -58,17 +61,8 @@ def remove_category
       puts "Your categories are:"
     else
       puts "invalid option"
-      return remove_category
+      return confirm_deletion
     end
     puts @category_hash.keys
 end
 
-# category = categories.find { |category| category == chosen_category }
-#     if category
-#       puts "What amount?"
-#       expense_amount = gets.chomp.to_i
-#       @category_hash[category] += expense_amount
-#     else
-#       system "clear"
-#       puts "Category does not exist".colorize(:cyan)
-#       return expenses
