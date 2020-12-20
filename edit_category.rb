@@ -26,8 +26,8 @@ def add_category
     sleep(2)
     system "clear"
     puts "Your new entry is:"
-    puts new_category
-    puts "Your new categories are:"
+    puts new_category.colorize(:cyan)
+    puts "Your categories are:"
     puts @category_hash.keys
 end
 
