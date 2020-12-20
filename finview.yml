@@ -1,8 +1,7 @@
 ---
 finview:
-  balance: 300
+  balance: 0
   categories_hash:
     Bills: 0
     Utilities: 0
     Groceries: 0
-    Cheese: 120

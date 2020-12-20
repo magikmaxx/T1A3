@@ -1,7 +1,16 @@
 # Statement of purpose and scope
 
 ## Name of Application: FinView (Finance View)
+
 ### URL: https://github.com/magikmaxx/T1A3/tree/master
+
+## Installation
+
+To run Finview
+
+1. Open the terminal
+1. Ensure that you are within root folder of project
+1. Type in: bash finview.sh
 
 ### Problem Identification
 
@@ -29,16 +38,13 @@ When the user receives their wages or when they are required to pay a bill, they
 
 ## Features
 
-#### Enter current balance
-
-This allows the user to enter their current balance and once they have entered their current balance it is saved. They will be able to choose what month they would like to enter their balance in.
-
 #### Make changes to current balance
 
-1. Add Balance
-1. Subtract Balance
+1. Add Income
+1. Subtract Expenses
 
-The user will be able to add to their current balance or subtract from their current balance. As above in “Enter current balance, the user will be able to select the month they would like to subtract or add a balance.
+In Add Income the user is able to add to their income. When they open Add Income, they will type in a number that will then add to their total balance.
+When selecting Subtract Expenses the user will be able to type in a number that will later subtract from their total balance. Before entering an expense they will need to select a category, this will help the user make sense of where they have made expenses.
 
 #### View Current balance
 
@@ -47,16 +53,33 @@ Viewing the current balance will show the user their current balance, where the 
 #### View expenditure breakdown
 
 When the user selects this option, they will be able to see a breakdown of their expenses including their current balance.
-When the user selects this, they will be able to see exactly in what categories they have spent the most and this can help them make better decisions on their spending habits. Just like in “view current balance”, any expenses are shown in red and any income or positive numbers are shown in green.
+When the user selects this, they will be able to see exactly in what categories they have spent the most and this can help them make better decisions on their spending habits. Any expenses are shown in red and any income or positive numbers are shown in green.
 
 #### Create a category
 
 Should there be a category that is not included in FinView, the user will be able to easily create their own category and this gives the user freedom, because they will not be restricted with the categories that FinView provides them. With greater flexibility, the user can better organize and makes sense of their finances due to better categorization.
 
-## Installation
+### Control Flow
 
-To run Finview
+![Control Flow](control_flow.png)
 
-1. Open the terminal
-1. Ensure that you are within root folder of project
-1. Type in: bash finview.sh
+### Trello
+
+Placed deadlines for things when it got very close to the deadline.
+![Trello board](Trello.png)
+
+When I made some changes to something I noted it in the Trello board so that I can see that theses changes were planned.
+
+![Change smade](noted_changes.png)
+
+The menu was different before and the changes have been noted on Trello.
+![Menucreation](menu.png)
+
+Deadlines have been added to certain parts as well.
+
+![AddingDeadlines](Deadline.png)
+
+When all tasks have been completed and double checked the labels were changed to only a color green. Only having the color green indicates that the everything has been checked. Red and Green labels indicate that it has been completed but not fully checked.
+Since everything has been checked and completed, the labels will only be green.
+
+![CompletionOfAllTasks](completion.png)
