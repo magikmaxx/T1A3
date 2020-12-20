@@ -1,6 +1,7 @@
 # Statement of purpose and scope
 
 ## Name of Application: FinView (Finance View)
+### URL: https://github.com/magikmaxx/T1A3/tree/master
 
 ### Problem Identification
 
@@ -51,3 +52,11 @@ When the user selects this, they will be able to see exactly in what categories 
 #### Create a category
 
 Should there be a category that is not included in FinView, the user will be able to easily create their own category and this gives the user freedom, because they will not be restricted with the categories that FinView provides them. With greater flexibility, the user can better organize and makes sense of their finances due to better categorization.
+
+## Installation
+
+To run Finview
+
+1. Open the terminal
+1. Ensure that you are within root folder of project
+1. Type in: bash finview.sh

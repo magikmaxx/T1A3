@@ -30,12 +30,22 @@ end
 
 #Allows the user to remove category
 def remove_category
+    categories = @category_hash.keys
     puts "Your current categories are:"
-    puts @category_hash.keys
+    puts categories
 
     puts "Please enter the category you would like to remove"
     category_remove = gets.chomp.capitalize
     # confirm product deletion
+    category = categories.find { |category| category == category_remove }
+    if category
+      puts "Your selected category is #{category_remove}"
+    else
+      system "clear"
+      puts "Category does not exist".colorize(:cyan)
+      return remove_category
+    end
+   
     puts "Would you like to delete this category? (y/n)"
     answer = gets.chomp
     if answer == "y"
@@ -44,11 +54,21 @@ def remove_category
       sleep (2)
       system "clear"
     elsif answer == "n"
-      puts "Category not deleted"
+      puts "Category not deleted".colorize(:cyan)
       puts "Your categories are:"
-      puts category.keys
     else
       puts "invalid option"
+      return remove_category
     end
     puts @category_hash.keys
 end
+
+# category = categories.find { |category| category == chosen_category }
+#     if category
+#       puts "What amount?"
+#       expense_amount = gets.chomp.to_i
+#       @category_hash[category] += expense_amount
+#     else
+#       system "clear"
+#       puts "Category does not exist".colorize(:cyan)
+#       return expenses
