@@ -1,4 +1,5 @@
 def expenses
+    expense_amount = nil
     categories = @category_hash.keys
 
     puts "Type in the category you would like add expenses to"
@@ -7,8 +8,10 @@ def expenses
 
     category = categories.find { |category| category == chosen_category }
     if category
-      puts "What amount?"
-      expense_amount = gets.chomp.to_i
+      while expense_amount.nil? do
+      puts "What amount?".colorize(:blue)
+      expense_amount = Integer(gets.chomp) rescue nil
+      end
       @category_hash[category] += expense_amount
     else
       system "clear"
@@ -19,7 +22,11 @@ def expenses
   end
 
 def income
-    puts "Please enter your income"
-    @balance += gets.chomp.to_i
-    puts "Your added income is #{@balance}"
+    input_balance = nil
+    while input_balance.nil? do
+    puts "Please enter your income".colorize(:blue)
+    input_balance = Integer(gets.chomp) rescue nil
+    end
+    @balance += input_balance
+    puts "Your added income is #{@balance}".colorize(:blue)
 end
