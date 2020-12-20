@@ -4,6 +4,7 @@ def expenses
 
     puts "Type in the category you would like add expenses to"
     puts categories
+    puts "Type category below:"
     chosen_category = gets.chomp.capitalize
 
     category = categories.find { |category| category == chosen_category }
