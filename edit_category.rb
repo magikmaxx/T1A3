@@ -15,6 +15,9 @@ def add_category
     if new_category.length > 9
       puts "Limit of 9 characters please".colorize(:blue)
       return add_category
+    elsif new_category.length < 3
+      puts "Please enter a category with more characters".colorize(:blue)
+      return add_category
     end
     # pushes a new category into the hash
     @category_hash[new_category] = 0
@@ -35,11 +38,11 @@ def remove_category
     puts categories
 
     puts "Please enter the category you would like to remove"
-    category_remove = gets.chomp.capitalize
+    @category_remove = gets.chomp.capitalize
     # confirm product deletion
-    category = categories.find { |category| category == category_remove }
+    category = categories.find { |category| category == @category_remove }
     if category
-      puts "Your selected category is #{category_remove}"
+      puts "Your selected category is #{@category_remove}"
       confirm_deletion
     else
       system "clear"
@@ -48,12 +51,12 @@ def remove_category
     end
 end
 
-def confirm_deletion   
+def confirm_deletion  
     puts "Would you like to delete this category? (y/n)"
     answer = gets.chomp
     if answer == "y"
-      @category_hash.delete(category_remove)
-      puts "Deleting: #{category_remove}"
+      @category_hash.delete(@category_remove)
+      puts "Deleting: #{@category_remove}"
       sleep (2)
       system "clear"
     elsif answer == "n"
@@ -63,6 +66,7 @@ def confirm_deletion
       puts "invalid option"
       return confirm_deletion
     end
+    puts "Your new categories are:"
     puts @category_hash.keys
 end
 
